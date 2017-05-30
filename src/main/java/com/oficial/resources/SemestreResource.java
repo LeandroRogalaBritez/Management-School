@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oficial.domain.curso.Semestre;
-import com.oficial.domain.curso.SemestreRepository;
+import com.oficial.domain.entities.Semestre;
+import com.oficial.domain.repository.SemestreRepository;
 
 @RestController
 @RequestMapping("/semestre")

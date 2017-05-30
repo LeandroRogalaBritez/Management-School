@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oficial.domain.curso.Disciplina;
-import com.oficial.domain.historico.Historico;
-import com.oficial.domain.historico.HistoricoRepository;
+import com.oficial.domain.entities.Disciplina;
+import com.oficial.domain.entities.Historico;
+import com.oficial.domain.repository.HistoricoRepository;
 
 @RestController
 @RequestMapping("/historico")

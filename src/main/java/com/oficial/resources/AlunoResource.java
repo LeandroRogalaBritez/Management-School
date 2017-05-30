@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oficial.domain.aluno.Aluno;
-import com.oficial.domain.aluno.AlunoRepository;
+import com.oficial.domain.entities.Aluno;
+import com.oficial.domain.repository.AlunoRepository;
 
 @RestController
 @RequestMapping("/alunos")

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oficial.domain.curso.Curso;
-import com.oficial.domain.curso.CursoRepository;
+import com.oficial.domain.entities.Curso;
+import com.oficial.domain.repository.CursoRepository;
 
 @RestController
 @RequestMapping("/curso")

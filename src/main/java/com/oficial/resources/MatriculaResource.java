@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oficial.domain.matricula.Matricula;
-import com.oficial.domain.matricula.MatriculaRepository;
-import com.oficial.domain.matricula.MatriculaService;
+import com.oficial.domain.entities.Matricula;
+import com.oficial.domain.repository.MatriculaRepository;
+import com.oficial.domain.service.MatriculaService;
 
 @RestController
 @RequestMapping("/matricula")
