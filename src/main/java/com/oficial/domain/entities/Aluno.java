@@ -13,21 +13,32 @@ public class Aluno extends Pessoa {
 
 	@NotNull
 	private int cadastro;
-	
+
 	@NotNull
 	private boolean situacao;
-	
-	@OneToMany(cascade=CascadeType.ALL)
+
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Frequencia> frequencia;
-	
-	@OneToMany(cascade=CascadeType.ALL)
+
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Prova> prova;
-	
-	@OneToMany(cascade=CascadeType.ALL)
+
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Trabalho> trabalho;
-	
-	@OneToMany(cascade=CascadeType.ALL)
+
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Disciplina> disciplina;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Matricula> matriculas;
+
+	public List<Matricula> getMatriculas() {
+		return matriculas;
+	}
+
+	public void setMatriculas(List<Matricula> matriculas) {
+		this.matriculas = matriculas;
+	}
 
 	public int getCadastro() {
 		return cadastro;
@@ -79,7 +90,8 @@ public class Aluno extends Pessoa {
 
 	public Aluno(Long id, String nome, Date dataNascimento, String observacao, String cpf, String rg, String login,
 			String senha, String email, Endereco endereco, Telefone telefone, int cadastro, boolean situacao,
-			List<Frequencia> frequencia, List<Prova> prova, List<Trabalho> trabalho, List<Disciplina> disciplina) {
+			List<Frequencia> frequencia, List<Prova> prova, List<Trabalho> trabalho, List<Disciplina> disciplina,
+			List<Matricula> matriculas) {
 		super(id, nome, dataNascimento, observacao, cpf, rg, login, senha, email, endereco, telefone);
 		this.cadastro = cadastro;
 		this.situacao = situacao;
@@ -87,11 +99,16 @@ public class Aluno extends Pessoa {
 		this.prova = prova;
 		this.trabalho = trabalho;
 		this.disciplina = disciplina;
+		this.matriculas = matriculas;
 	}
 
 	public Aluno(Long id, String nome, Date dataNascimento, String observacao, String cpf, String rg, String login,
 			String senha, String email, Endereco endereco, Telefone telefone) {
 		super(id, nome, dataNascimento, observacao, cpf, rg, login, senha, email, endereco, telefone);
+	}
+
+	public Aluno() {
+		super();
 	}
 
 }

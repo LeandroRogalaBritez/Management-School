@@ -2,12 +2,34 @@ package com.oficial.domain.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Trabalho {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
 	private String descricao;
+	
+	@NotNull
+	@Temporal(TemporalType.DATE)
 	private Date data;
+	
+	@NotNull
+	@ManyToOne
 	private Nota nota;
+	
+	@NotNull
+	@ManyToOne
 	private Disciplina disciplina;
 
 	public int getId() {

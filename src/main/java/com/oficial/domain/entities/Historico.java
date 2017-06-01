@@ -15,17 +15,22 @@ public class Historico {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="historico_sequence")
 	@SequenceGenerator(name="historico_sequence", sequenceName="historico_sequence")
 	private Long id;
+	
 	@ManyToOne
 	@NotNull
 	private Disciplina disciplina;
+	
 	@ManyToOne
 	@NotNull
 	private Aluno aluno;
+	
 	@NotNull
 	private Long nota;
+	
+	@NotNull
 	private boolean aprovado;
 	
-	Historico() {}
+	public Historico() {}
 
 	public Long getId() {
 		return id;

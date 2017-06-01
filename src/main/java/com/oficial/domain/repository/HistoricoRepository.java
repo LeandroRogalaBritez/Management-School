@@ -10,5 +10,5 @@ import com.oficial.domain.entities.Historico;
 public interface HistoricoRepository extends CrudRepository<Historico, Long>{
 	
 	public Collection<Historico>findByDisciplinaInAndAprovadoTrue(Collection<Disciplina> disciplinas);
-
+	
 }

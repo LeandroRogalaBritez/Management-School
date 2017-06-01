@@ -3,12 +3,18 @@ package com.oficial.domain.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Funcionario extends Pessoa {
 
+	@NotNull
 	private String formacao;
+
+	@NotNull
 	private double salario;
+
+	@NotNull
 	private double cargaHoraria;
 
 	public String getFormacao() {

@@ -2,7 +2,6 @@ package com.oficial.domain.entities;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
@@ -22,24 +22,32 @@ public class Disciplina {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "disciplina_sequence")
 	@SequenceGenerator(name = "disciplina_sequence", allocationSize = 1, sequenceName = "disciplina_sequence")
 	private Long id;
-	
+
 	@NotNull
 	private String nome;
+
 	private String descricao;
-	@Column(name = "carge_horaria")
+
 	@NotNull
 	private int cargaHoraria;
+
 	@ManyToOne
 	@JoinColumn(name = "curso_id")
 	@NotNull
 	private Curso curso;
+
 	@ManyToOne
 	@NotNull
 	@JoinColumn(name = "semestre_id")
 	private Semestre semestre;
+
 	@OneToMany
 	private Collection<Disciplina> dependencias;
+
+	@NotNull
 	private boolean aberta;
+
+	@OneToOne
 	private Professor professor;
 
 	public Long getId() {

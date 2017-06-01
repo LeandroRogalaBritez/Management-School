@@ -12,8 +12,10 @@ public class Semestre {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
 	@NotNull
 	private String semestre;
+	
 	private String descricao;
 	
 	public Semestre() {}

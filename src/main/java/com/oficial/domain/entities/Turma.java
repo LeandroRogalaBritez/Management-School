@@ -2,17 +2,40 @@ package com.oficial.domain.entities;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Turma {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+
+	@NotNull
 	private String nome;
+
+	@OneToMany
 	private List<Aluno> alunos;
+
+	@NotNull
 	private int limiteAluno;
+
+	@NotNull
 	private boolean situacao;
+
+	@NotNull
+	@ManyToOne
 	private Semestre semestre;
+
+	@NotNull
+	@ManyToOne
 	private Curso curso;
-	
-	
 
 	public Curso getCurso() {
 		return curso;
@@ -70,7 +93,8 @@ public class Turma {
 		this.semestre = semestre;
 	}
 
-	public Turma(int id, String nome, List<Aluno> alunos, int limiteAluno, boolean situacao, Semestre semestre, Curso curso) {
+	public Turma(int id, String nome, List<Aluno> alunos, int limiteAluno, boolean situacao, Semestre semestre,
+			Curso curso) {
 		super();
 		this.id = id;
 		this.nome = nome;

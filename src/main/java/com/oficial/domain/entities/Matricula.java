@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,13 +19,21 @@ public class Matricula {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "matricula_sequence")
 	@SequenceGenerator(name = "matricula_sequence", sequenceName = "matricula_sequence")
 	private Long id;
+	
 	@ManyToOne
 	@NotNull
 	private Aluno aluno;
+	
 	@ManyToOne
 	@NotNull
 	private Disciplina disciplina;
+	
+	@ManyToOne
+	@NotNull
 	private Turma turma;
+	
+	@NotNull
+	@Temporal(TemporalType.DATE)
 	private Date data;
 
 	public Long getId() {
