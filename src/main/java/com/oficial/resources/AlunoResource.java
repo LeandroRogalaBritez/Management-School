@@ -16,7 +16,7 @@ import com.oficial.domain.repository.AlunoRepository;
 @RequestMapping("/alunos")
 public class AlunoResource {
 
-	private AlunoRepository alunoRepository; //Teste
+	private AlunoRepository alunoRepository;
 
 	public AlunoResource(AlunoRepository alunoRepository) {
 		this.alunoRepository = alunoRepository;
