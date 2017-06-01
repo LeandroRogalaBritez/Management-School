@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Endereco {
+public class Endereco  {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

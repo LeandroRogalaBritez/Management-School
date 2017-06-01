@@ -20,12 +20,10 @@ public class Curso {
 	@NotNull
 	private String nome;
 	
-	private String descricao;
-	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
 	private List<Disciplina> disciplinas;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "curso")
 	private List<Turma> turmas;
 
 	public Long getId() {
@@ -44,14 +42,6 @@ public class Curso {
 		this.nome = nome;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
@@ -68,11 +58,10 @@ public class Curso {
 		this.turmas = turmas;
 	}
 
-	public Curso(Long id, String nome, String descricao, List<Disciplina> disciplinas, List<Turma> turmas) {
+	public Curso(Long id, String nome, List<Disciplina> disciplinas, List<Turma> turmas) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.descricao = descricao;
 		this.disciplinas = disciplinas;
 		this.turmas = turmas;
 	}

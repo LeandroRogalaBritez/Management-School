@@ -29,11 +29,6 @@ public class Turma {
 	@NotNull
 	private boolean situacao;
 
-	@NotNull
-	@ManyToOne
-	private Semestre semestre;
-
-	@NotNull
 	@ManyToOne
 	private Curso curso;
 
@@ -85,15 +80,7 @@ public class Turma {
 		this.situacao = situacao;
 	}
 
-	public Semestre getSemestre() {
-		return semestre;
-	}
-
-	public void setSemestre(Semestre semestre) {
-		this.semestre = semestre;
-	}
-
-	public Turma(int id, String nome, List<Aluno> alunos, int limiteAluno, boolean situacao, Semestre semestre,
+	public Turma(int id, String nome, List<Aluno> alunos, int limiteAluno, boolean situacao,
 			Curso curso) {
 		super();
 		this.id = id;
@@ -101,7 +88,6 @@ public class Turma {
 		this.alunos = alunos;
 		this.limiteAluno = limiteAluno;
 		this.situacao = situacao;
-		this.semestre = semestre;
 		this.curso = curso;
 	}
 

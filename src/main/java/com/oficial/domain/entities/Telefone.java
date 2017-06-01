@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Telefone {
+public class Telefone  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

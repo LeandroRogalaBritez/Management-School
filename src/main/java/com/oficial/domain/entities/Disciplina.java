@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -26,29 +25,23 @@ public class Disciplina {
 	@NotNull
 	private String nome;
 
-	private String descricao;
-
 	@NotNull
 	private int cargaHoraria;
-
-	@ManyToOne
-	@JoinColumn(name = "curso_id")
-	@NotNull
-	private Curso curso;
-
-	@ManyToOne
-	@NotNull
-	@JoinColumn(name = "semestre_id")
-	private Semestre semestre;
-
+	
 	@OneToMany
 	private Collection<Disciplina> dependencias;
-
+	
 	@NotNull
 	private boolean aberta;
 
 	@OneToOne
 	private Professor professor;
+
+	@ManyToOne
+	private Curso curso;
+
+	@OneToOne
+	private Semestre semestre;
 
 	public Long getId() {
 		return id;
@@ -64,14 +57,6 @@ public class Disciplina {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 	public int getCargaHoraria() {
@@ -122,12 +107,11 @@ public class Disciplina {
 		this.professor = professor;
 	}
 
-	public Disciplina(Long id, String nome, String descricao, int cargaHoraria, Curso curso, Semestre semestre,
+	public Disciplina(Long id, String nome, int cargaHoraria, Curso curso, Semestre semestre,
 			Collection<Disciplina> dependencias, boolean aberta, Professor professor) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.descricao = descricao;
 		this.cargaHoraria = cargaHoraria;
 		this.curso = curso;
 		this.semestre = semestre;

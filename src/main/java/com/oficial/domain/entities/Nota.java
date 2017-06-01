@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Nota {
+public class Nota  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

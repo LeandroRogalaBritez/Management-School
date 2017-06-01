@@ -8,17 +8,16 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Semestre {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotNull
 	private String semestre;
-	
-	private String descricao;
-	
-	public Semestre() {}
+
+	public Semestre() {
+	}
 
 	public Long getId() {
 		return id;
@@ -36,11 +35,10 @@ public class Semestre {
 		this.semestre = semestre;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public Semestre(Long id, String semestre) {
+		super();
+		this.id = id;
+		this.semestre = semestre;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 }

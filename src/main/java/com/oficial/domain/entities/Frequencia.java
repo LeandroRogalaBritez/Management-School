@@ -15,16 +15,19 @@ import javax.validation.constraints.NotNull;
 public class Frequencia {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date data;
-	
+
 	@NotNull
 	private boolean presente;
-	
+
+	@ManyToOne
+	private Aluno aluno;
+
 	@NotNull
 	@ManyToOne
 	private Disciplina disciplina;
@@ -61,12 +64,21 @@ public class Frequencia {
 		this.disciplina = disciplina;
 	}
 
-	public Frequencia(int id, Date data, boolean presente, Disciplina disciplina) {
+	public Frequencia(int id, Date data, boolean presente, Aluno aluno, Disciplina disciplina) {
 		super();
 		this.id = id;
 		this.data = data;
 		this.presente = presente;
+		this.aluno = aluno;
 		this.disciplina = disciplina;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 
 	public Frequencia() {

@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
@@ -12,25 +13,20 @@ import javax.validation.constraints.NotNull;
 public class Historico {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="historico_sequence")
-	@SequenceGenerator(name="historico_sequence", sequenceName="historico_sequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "historico_sequence")
+	@SequenceGenerator(name = "historico_sequence", sequenceName = "historico_sequence")
 	private Long id;
-	
-	@ManyToOne
+
+	@OneToOne
 	@NotNull
 	private Disciplina disciplina;
-	
+
 	@ManyToOne
 	@NotNull
 	private Aluno aluno;
-	
-	@NotNull
-	private Long nota;
-	
+
 	@NotNull
 	private boolean aprovado;
-	
-	public Historico() {}
 
 	public Long getId() {
 		return id;
@@ -56,14 +52,6 @@ public class Historico {
 		this.aluno = aluno;
 	}
 
-	public Long getNota() {
-		return nota;
-	}
-
-	public void setNota(Long nota) {
-		this.nota = nota;
-	}
-
 	public boolean isAprovado() {
 		return aprovado;
 	}
@@ -71,4 +59,17 @@ public class Historico {
 	public void setAprovado(boolean aprovado) {
 		this.aprovado = aprovado;
 	}
+
+	public Historico(Long id, Disciplina disciplina, Aluno aluno, boolean aprovado) {
+		super();
+		this.id = id;
+		this.disciplina = disciplina;
+		this.aluno = aluno;
+		this.aprovado = aprovado;
+	}
+
+	public Historico() {
+		super();
+	}
+
 }

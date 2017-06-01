@@ -48,6 +48,7 @@ public class Funcionario extends Pessoa {
 		this.formacao = formacao;
 		this.salario = salario;
 		this.cargaHoraria = cargaHoraria;
+		
 	}
 
 	public Funcionario(Long id, String nome, Date dataNascimento, String observacao, String cpf, String rg,

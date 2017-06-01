@@ -6,8 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -43,10 +43,10 @@ public class Pessoa {
 	@NotNull
 	private String email;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	private Endereco endereco;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	private Telefone telefone;
 
 	public Long getId() {

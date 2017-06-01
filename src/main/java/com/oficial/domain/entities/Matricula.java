@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,13 +25,9 @@ public class Matricula {
 	@NotNull
 	private Aluno aluno;
 	
-	@ManyToOne
+	@OneToOne
 	@NotNull
 	private Disciplina disciplina;
-	
-	@ManyToOne
-	@NotNull
-	private Turma turma;
 	
 	@NotNull
 	@Temporal(TemporalType.DATE)
@@ -60,14 +57,6 @@ public class Matricula {
 		this.disciplina = disciplina;
 	}
 
-	public Turma getTurma() {
-		return turma;
-	}
-
-	public void setTurma(Turma turma) {
-		this.turma = turma;
-	}
-
 	public Date getData() {
 		return data;
 	}
@@ -76,12 +65,11 @@ public class Matricula {
 		this.data = data;
 	}
 
-	public Matricula(Long id, Aluno aluno, Disciplina disciplina, Turma turma, Date data) {
+	public Matricula(Long id, Aluno aluno, Disciplina disciplina,  Date data) {
 		super();
 		this.id = id;
 		this.aluno = aluno;
 		this.disciplina = disciplina;
-		this.turma = turma;
 		this.data = data;
 	}
 
