@@ -2,10 +2,10 @@ package com.oficial.domain.entities;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
-@Entity
+@MappedSuperclass
 public class Funcionario extends Pessoa {
 
 	@NotNull
@@ -48,12 +48,16 @@ public class Funcionario extends Pessoa {
 		this.formacao = formacao;
 		this.salario = salario;
 		this.cargaHoraria = cargaHoraria;
-		
+
 	}
 
 	public Funcionario(Long id, String nome, Date dataNascimento, String observacao, String cpf, String rg,
 			String login, String senha, String email, Endereco endereco, Telefone telefone) {
 		super(id, nome, dataNascimento, observacao, cpf, rg, login, senha, email, endereco, telefone);
+	}
+
+	public Funcionario() {
+		super();
 	}
 
 }
