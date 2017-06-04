@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
 import com.oficial.domain.entities.Disciplina;
@@ -18,8 +17,7 @@ import com.oficial.domain.entities.Disciplina;
 public class Disciplina {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "disciplina_sequence")
-	@SequenceGenerator(name = "disciplina_sequence", allocationSize = 1, sequenceName = "disciplina_sequence")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@NotNull
@@ -27,12 +25,12 @@ public class Disciplina {
 
 	@NotNull
 	private int cargaHoraria;
-	
-	@OneToMany
-	private Collection<Disciplina> dependencias;
-	
+
 	@NotNull
 	private boolean aberta;
+
+	@OneToMany
+	private Collection<Disciplina> dependencias;
 
 	@OneToOne
 	private Professor professor;
@@ -40,7 +38,7 @@ public class Disciplina {
 	@ManyToOne
 	private Curso curso;
 
-	@OneToOne
+	@ManyToOne
 	private Semestre semestre;
 
 	public Long getId() {
@@ -67,6 +65,30 @@ public class Disciplina {
 		this.cargaHoraria = cargaHoraria;
 	}
 
+	public boolean isAberta() {
+		return aberta;
+	}
+
+	public void setAberta(boolean aberta) {
+		this.aberta = aberta;
+	}
+
+	public Collection<Disciplina> getDependencias() {
+		return dependencias;
+	}
+
+	public void setDependencias(Collection<Disciplina> dependencias) {
+		this.dependencias = dependencias;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
 	public Curso getCurso() {
 		return curso;
 	}
@@ -83,41 +105,17 @@ public class Disciplina {
 		this.semestre = semestre;
 	}
 
-	public Collection<Disciplina> getDependencias() {
-		return dependencias;
-	}
-
-	public void setDependencias(Collection<Disciplina> dependencias) {
-		this.dependencias = dependencias;
-	}
-
-	public boolean isAberta() {
-		return aberta;
-	}
-
-	public void setAberta(boolean aberta) {
-		this.aberta = aberta;
-	}
-
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
-
-	public Disciplina(Long id, String nome, int cargaHoraria, Curso curso, Semestre semestre,
-			Collection<Disciplina> dependencias, boolean aberta, Professor professor) {
+	public Disciplina(Long id, String nome, int cargaHoraria, boolean aberta, Collection<Disciplina> dependencias,
+			Professor professor, Curso curso, Semestre semestre) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cargaHoraria = cargaHoraria;
+		this.aberta = aberta;
+		this.dependencias = dependencias;
+		this.professor = professor;
 		this.curso = curso;
 		this.semestre = semestre;
-		this.dependencias = dependencias;
-		this.aberta = aberta;
-		this.professor = professor;
 	}
 
 	public Disciplina() {

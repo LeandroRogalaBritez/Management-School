@@ -16,37 +16,39 @@ import javax.validation.constraints.NotNull;
 public class Pessoa {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotNull
 	private String nome;
-	
+
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
-	
+
 	private String observacao;
-	
+
 	@NotNull
 	private String cpf;
-	
+
 	@NotNull
 	private String rg;
-	
+
 	@NotNull
 	private String login;
-	
+
 	@NotNull
 	private String senha;
-	
+
 	@NotNull
 	private String email;
-	
-	@OneToOne(cascade=CascadeType.ALL)
+
+	@NotNull
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
-	
-	@OneToOne(cascade=CascadeType.ALL)
+
+	@NotNull
+	@OneToOne(cascade = CascadeType.ALL)
 	private Telefone telefone;
 
 	public Long getId() {

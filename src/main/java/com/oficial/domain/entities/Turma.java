@@ -26,19 +26,14 @@ public class Turma {
 	@NotNull
 	private int limiteAluno;
 
+	@ManyToOne
+	private Semestre Semestre;
+
 	@NotNull
 	private boolean situacao;
 
 	@ManyToOne
 	private Curso curso;
-
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
 
 	public int getId() {
 		return id;
@@ -72,6 +67,14 @@ public class Turma {
 		this.limiteAluno = limiteAluno;
 	}
 
+	public Semestre getSemestre() {
+		return Semestre;
+	}
+
+	public void setSemestre(Semestre semestre) {
+		Semestre = semestre;
+	}
+
 	public boolean isSituacao() {
 		return situacao;
 	}
@@ -80,13 +83,22 @@ public class Turma {
 		this.situacao = situacao;
 	}
 
-	public Turma(int id, String nome, List<Aluno> alunos, int limiteAluno, boolean situacao,
-			Curso curso) {
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public Turma(int id, String nome, List<Aluno> alunos, int limiteAluno,
+			com.oficial.domain.entities.Semestre semestre, boolean situacao, Curso curso) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.alunos = alunos;
 		this.limiteAluno = limiteAluno;
+		Semestre = semestre;
 		this.situacao = situacao;
 		this.curso = curso;
 	}

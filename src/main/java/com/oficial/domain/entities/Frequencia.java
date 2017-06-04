@@ -25,6 +25,7 @@ public class Frequencia {
 	@NotNull
 	private boolean presente;
 
+	@NotNull
 	@ManyToOne
 	private Aluno aluno;
 

@@ -7,29 +7,29 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Endereco  {
+public class Endereco {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotNull
 	private int cep;
-	
+
 	@NotNull
 	private String logradouro;
-	
+
 	@NotNull
 	private int numero;
-	
+
 	private String complemento;
-	
+
 	@NotNull
 	private String bairro;
-	
+
 	@NotNull
 	private String cidade;
-	
+
 	@NotNull
 	private String pais;
 

@@ -2,13 +2,11 @@ package com.oficial.domain.entities;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -17,24 +15,25 @@ import javax.validation.constraints.NotNull;
 public class Prova {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
+	@NotNull
 	private String descricao;
-	
+
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date data;
-	
+
 	@NotNull
-	@OneToOne(cascade=CascadeType.ALL)
-	private Nota nota;
-	
+	private double nota;
+
+	@NotNull
 	@ManyToOne
 	private Aluno aluno;
-	
+
 	@NotNull
-	@OneToOne
+	@ManyToOne
 	private Disciplina disciplina;
 
 	public int getId() {
@@ -61,12 +60,20 @@ public class Prova {
 		this.data = data;
 	}
 
-	public Nota getNota() {
+	public double getNota() {
 		return nota;
 	}
 
-	public void setNota(Nota nota) {
+	public void setNota(double nota) {
 		this.nota = nota;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 
 	public Disciplina getDisciplina() {
@@ -77,12 +84,13 @@ public class Prova {
 		this.disciplina = disciplina;
 	}
 
-	public Prova(int id, String descricao, Date data, Nota nota, Disciplina disciplina) {
+	public Prova(int id, String descricao, Date data, double nota, Aluno aluno, Disciplina disciplina) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.data = data;
 		this.nota = nota;
+		this.aluno = aluno;
 		this.disciplina = disciplina;
 	}
 

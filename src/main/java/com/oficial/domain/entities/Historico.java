@@ -5,19 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Historico {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "historico_sequence")
-	@SequenceGenerator(name = "historico_sequence", sequenceName = "historico_sequence")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@OneToOne
+	@ManyToOne
 	@NotNull
 	private Disciplina disciplina;
 
