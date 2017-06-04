@@ -33,9 +33,9 @@ public class CordenadorResource {
 		return repositorio.findAll();
 	}
 
-	@GetMapping(value = "/{id}")
-	public Cordenador getById(@PathVariable Long id) {
-		return repositorio.findOne(id);
+	@GetMapping(value = "/{nome}")
+	public Cordenador getByNome(@PathVariable String nome) {
+		return repositorio.findByNome(nome);
 	}
 
 	@PutMapping(value = "/{id}")
