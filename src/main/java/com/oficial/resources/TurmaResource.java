@@ -11,21 +11,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oficial.domain.entities.Turma;
 import com.oficial.domain.repository.TurmaRepository;
+import com.oficial.domain.service.TurmaService;
 
 @RestController
 @RequestMapping("/turma")
 public class TurmaResource {
-	
-	private TurmaRepository repositorio;
 
-	public TurmaResource(TurmaRepository repositorio) {
+	private TurmaRepository repositorio;
+	private TurmaService service;
+
+	public TurmaResource(TurmaRepository repositorio, TurmaService service) {
 		super();
 		this.repositorio = repositorio;
+		this.service = service;
 	}
-	
+
 	@PostMapping
 	public Turma saveTurma(@RequestBody Turma turma) {
-		return repositorio.save(turma);
+		return service.salvaTurma(turma);
 	}
 
 	@GetMapping

@@ -56,7 +56,7 @@ public class DisciplinaResource {
 	}
 	
 	@DeleteMapping(value="/{id}/dependencia/{idDependencia}")
-	public void removeDisciplina(@PathVariable Long id, Long idDependencia) {
+	public void removeDisciplina(@PathVariable Long id,@PathVariable Long idDependencia) {
 		service.removeDependencia(id, idDependencia);
 	}
 }
