@@ -33,9 +33,9 @@ public class ProfessorResource {
 		return repositorio.findAll();
 	}
 	
-	@GetMapping(value="/{id}")
-	public Professor getById(@PathVariable Long id) {
-		return repositorio.findOne(id);
+	@GetMapping(value="/{nome}")
+	public Professor getByNome(@PathVariable String nome) {
+		return repositorio.findByNome(nome);
 	}
 		
 	@DeleteMapping(value="/{id}")

@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oficial.domain.entities.Disciplina;
 import com.oficial.domain.repository.DisciplinaRepository;
+import com.oficial.domain.service.DisciplinaService;
 
 @RestController
 @RequestMapping("/disciplina")
 public class DisciplinaResource {
 
 	private DisciplinaRepository disciplinaRepository;
+	private DisciplinaService service;
 
-	public DisciplinaResource(DisciplinaRepository disciplinaRepository){
+	public DisciplinaResource(DisciplinaRepository disciplinaRepository, DisciplinaService service){
 		this.disciplinaRepository = disciplinaRepository;
+		this.service = service;
 	}
 	
 	@GetMapping
@@ -29,7 +32,7 @@ public class DisciplinaResource {
 	
 	@PostMapping
 	public Disciplina saveDisciplina(@RequestBody Disciplina disciplina) {
-		return disciplinaRepository.save(disciplina);
+		return service.salvar(disciplina);
 	}
 	
 	@GetMapping(value="/{id}")
@@ -47,4 +50,13 @@ public class DisciplinaResource {
 		return disciplinaRepository.save(disciplina);
 	}
 	
+	@PutMapping(value = "/{id}/dependencia")
+	public Disciplina adicionaDependencia(@PathVariable Long id, @RequestBody Disciplina disciplina) {
+		return service.adicionaDependencia(id, disciplina);
+	}
+	
+	@DeleteMapping(value="/{id}/dependencia/{idDependencia}")
+	public void removeDisciplina(@PathVariable Long id, Long idDependencia) {
+		service.removeDependencia(id, idDependencia);
+	}
 }

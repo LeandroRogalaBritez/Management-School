@@ -42,4 +42,15 @@ public class Aluno extends Pessoa {
 		super(id, nome, dataNascimento, observacao, cpf, rg, login, senha, email, endereco, telefone);
 	}
 
+	public Aluno() {
+		super();
+	}
+
+	public Aluno(int cadastro, boolean situacao) {
+		super();
+		this.cadastro = cadastro;
+		this.situacao = situacao;
+	}
+
+	
 }

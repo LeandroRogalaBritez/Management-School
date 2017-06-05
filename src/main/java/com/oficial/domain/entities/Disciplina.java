@@ -121,5 +121,13 @@ public class Disciplina {
 	public Disciplina() {
 		super();
 	}
+	
+	public void adicionaDependencia(Disciplina dependencia){
+		dependencias.add(dependencia);
+	}
+	
+	public void removeDependencia(Disciplina dependencia){
+		dependencias.remove(dependencia);
+	}
 
 }

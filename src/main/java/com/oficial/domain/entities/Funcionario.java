@@ -16,13 +16,13 @@ public class Funcionario extends Pessoa {
 
 	@NotNull
 	private double cargaHoraria;
+	
+	public void setFormacao(String formacao) {
+		this.formacao = formacao;
+	}
 
 	public String getFormacao() {
 		return formacao;
-	}
-
-	public void setFormacao(String formacao) {
-		this.formacao = formacao;
 	}
 
 	public double getSalario() {

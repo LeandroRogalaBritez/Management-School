@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oficial.domain.entities.Aluno;
 import com.oficial.domain.repository.AlunoRepository;
+import com.oficial.domain.service.AlunoService;
 
 @RestController
 @RequestMapping("/alunos")
 public class AlunoResource {
 
 	private AlunoRepository alunoRepository;
+	private AlunoService alunoService;
 	
-	public AlunoResource(AlunoRepository alunoRepository) {
+	public AlunoResource(AlunoRepository alunoRepository, AlunoService alunoService) {
 		this.alunoRepository = alunoRepository;
+		this.alunoService = alunoService;
 	}
 	
 	@GetMapping
@@ -29,12 +32,12 @@ public class AlunoResource {
 	
 	@PostMapping
 	public Aluno saveAluno(@RequestBody Aluno aluno) {
-		return alunoRepository.save(aluno);
+		return alunoService.salvaAluno(aluno);
 	}
 	
-	@GetMapping(value="/{id}")
-	public Aluno getById(@PathVariable Long id) {
-		return alunoRepository.findOne(id);
+	@GetMapping(value="/{nome}")
+	public Aluno getByNome(@PathVariable String nome) {
+		return alunoRepository.findByNome(nome);
 	}
 	
 	@PutMapping(value="/{id}")
