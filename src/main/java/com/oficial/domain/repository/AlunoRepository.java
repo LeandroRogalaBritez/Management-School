@@ -9,4 +9,5 @@ public interface AlunoRepository extends CrudRepository<Aluno, Long> {
 	public Aluno findByNome(String nome);
 	
 	public Aluno findById(Long id);
+
 }

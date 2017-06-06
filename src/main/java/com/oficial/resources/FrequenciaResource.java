@@ -11,21 +11,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oficial.domain.entities.Frequencia;
 import com.oficial.domain.repository.FrequenciaRepository;
+import com.oficial.domain.service.FrequenciaService;
 
 @RestController
 @RequestMapping("/frequencia")
 public class FrequenciaResource {
 	
 	private FrequenciaRepository repositorio;
+	private FrequenciaService service;
 
-	public FrequenciaResource(FrequenciaRepository repositorio) {
+	public FrequenciaResource(FrequenciaRepository repositorio, FrequenciaService service) {
 		super();
 		this.repositorio = repositorio;
+		this.service = service;
 	}
 	
 	@PostMapping
 	public Frequencia saveFrequencia(@RequestBody Frequencia frequencia) {
-		return repositorio.save(frequencia);
+		return service.lancaFrequencia(frequencia);
 	}
 
 	@GetMapping

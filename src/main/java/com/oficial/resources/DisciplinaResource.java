@@ -59,4 +59,9 @@ public class DisciplinaResource {
 	public void removeDisciplina(@PathVariable Long id,@PathVariable Long idDependencia) {
 		service.removeDependencia(id, idDependencia);
 	}
+	
+	@GetMapping(value="/fecharnota/{id}/{idAluno}")
+	public void fecharNota(@PathVariable Long id,@PathVariable Long idAluno){
+		service.fecharNota(id, idAluno);
+	}
 }

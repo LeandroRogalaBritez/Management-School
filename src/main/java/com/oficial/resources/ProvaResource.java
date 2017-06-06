@@ -11,21 +11,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oficial.domain.entities.Prova;
 import com.oficial.domain.repository.ProvaRepository;
+import com.oficial.domain.service.ProvaService;
 
 @RestController
 @RequestMapping("/prova")
 public class ProvaResource {
 
 	private ProvaRepository repositorio;
+	private ProvaService service;
 
-	public ProvaResource(ProvaRepository repositorio) {
+	public ProvaResource(ProvaRepository repositorio, ProvaService service) {
 		super();
 		this.repositorio = repositorio;
+		this.service = service;
 	}
 	
 	@PostMapping
 	public Prova saveProva(@RequestBody Prova prova) {
-		return repositorio.save(prova);
+		return service.cadastraProva(prova);
 	}
 
 	@GetMapping
