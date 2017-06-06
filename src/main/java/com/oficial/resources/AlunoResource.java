@@ -19,40 +19,40 @@ public class AlunoResource {
 
 	private AlunoRepository alunoRepository;
 	private AlunoService alunoService;
-	
+
 	public AlunoResource(AlunoRepository alunoRepository, AlunoService alunoService) {
 		this.alunoRepository = alunoRepository;
 		this.alunoService = alunoService;
 	}
-	
+
 	@GetMapping
 	public Iterable<Aluno> getAllAlunos() {
 		return alunoRepository.findAll();
 	}
-	
+
 	@PostMapping
 	public Aluno saveAluno(@RequestBody Aluno aluno) {
 		return alunoService.salvaAluno(aluno);
 	}
-	
-	@GetMapping(value="/{nome}")
+
+	@GetMapping(value = "/{nome}")
 	public Aluno getByNome(@PathVariable String nome) {
 		return alunoRepository.findByNome(nome);
 	}
-	
-	@PutMapping(value="/{id}")
+
+	@PutMapping(value = "/{id}")
 	public Aluno updateAluno(@PathVariable Long id, @RequestBody Aluno aluno) {
 		return alunoRepository.save(aluno);
 	}
-	
-	@DeleteMapping(value="/{id}")
+
+	@DeleteMapping(value = "/{id}")
 	public void removeAluno(@PathVariable Long id) {
 		alunoRepository.delete(id);
 	}
-	
-	@GetMapping(value="/teste/{id}")
-	public Aluno buscaAlunoId(@PathVariable Long id){
+
+	@GetMapping(value = "/teste/{id}")
+	public Aluno buscaAlunoId(@PathVariable Long id) {
 		return alunoRepository.findOne(id);
 	}
-	
+
 }

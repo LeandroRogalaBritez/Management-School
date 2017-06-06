@@ -52,5 +52,4 @@ public class Aluno extends Pessoa {
 		this.situacao = situacao;
 	}
 
-	
 }

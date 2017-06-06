@@ -16,7 +16,7 @@ import com.oficial.domain.service.TrabalhoService;
 @RestController
 @RequestMapping("/trabalho")
 public class TrabalhoResource {
-	
+
 	private TrabalhoRepository repositorio;
 	private TrabalhoService service;
 
@@ -25,7 +25,7 @@ public class TrabalhoResource {
 		this.repositorio = repositorio;
 		this.service = service;
 	}
-	
+
 	@PostMapping
 	public Trabalho saveTrabalho(@RequestBody Trabalho trabalho) {
 		return service.cadastraTrabalho(trabalho);

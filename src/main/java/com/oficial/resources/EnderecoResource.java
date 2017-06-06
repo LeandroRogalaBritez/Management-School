@@ -22,7 +22,7 @@ public class EnderecoResource {
 		super();
 		this.repositorio = repositorio;
 	}
-	
+
 	@PostMapping
 	public Endereco saveEndereco(@RequestBody Endereco endereco) {
 		return repositorio.save(endereco);
@@ -32,17 +32,17 @@ public class EnderecoResource {
 	public Iterable<Endereco> getAllEnderecos() {
 		return repositorio.findAll();
 	}
-	
-	@GetMapping(value="/{id}")
+
+	@GetMapping(value = "/{id}")
 	public Endereco getById(@PathVariable Long id) {
 		return repositorio.findOne(id);
 	}
-		
-	@DeleteMapping(value="/{id}")
+
+	@DeleteMapping(value = "/{id}")
 	public void removeEndereco(@PathVariable Long id) {
 		repositorio.delete(id);
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public Endereco updateEndereco(@PathVariable Long id, @RequestBody Endereco endereco) {
 		return repositorio.save(endereco);

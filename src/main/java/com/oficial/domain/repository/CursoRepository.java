@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.oficial.domain.entities.Curso;
 
-public interface CursoRepository extends CrudRepository<Curso, Long>{
+public interface CursoRepository extends CrudRepository<Curso, Long> {
 
 }

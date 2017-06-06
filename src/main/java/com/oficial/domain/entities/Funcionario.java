@@ -16,7 +16,7 @@ public class Funcionario extends Pessoa {
 
 	@NotNull
 	private double cargaHoraria;
-	
+
 	public void setFormacao(String formacao) {
 		this.formacao = formacao;
 	}

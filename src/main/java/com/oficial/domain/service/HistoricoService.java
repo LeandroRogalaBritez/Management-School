@@ -11,7 +11,7 @@ import com.oficial.domain.repository.HistoricoRepository;
 
 @Service
 public class HistoricoService {
-	
+
 	private HistoricoRepository repositorio;
 	private AlunoRepository repositorioAluno;
 
@@ -20,8 +20,8 @@ public class HistoricoService {
 		this.repositorio = repositorio;
 		this.repositorioAluno = rep;
 	}
-	
-	public Collection<Historico> buscaHistoricoAluno(Long id){
+
+	public Collection<Historico> buscaHistoricoAluno(Long id) {
 		Aluno aluno = repositorioAluno.findOne(id);
 		return repositorio.findByAlunoIn(aluno);
 	}

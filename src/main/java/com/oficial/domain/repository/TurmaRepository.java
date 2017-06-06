@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.oficial.domain.entities.Turma;
 
-public interface TurmaRepository extends CrudRepository<Turma, Long>{
+public interface TurmaRepository extends CrudRepository<Turma, Long> {
 
 }

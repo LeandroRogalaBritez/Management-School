@@ -24,17 +24,17 @@ public class MatriculaResource {
 		this.matriculaRepository = matriculaRepository;
 		this.matriculaService = matriculaService;
 	}
-	
+
 	@GetMapping
 	public Iterable<Matricula> getAllMatriculas() {
 		return matriculaRepository.findAll();
 	}
-	
+
 	@PostMapping
 	public boolean saveMatricula(@RequestBody Matricula matricula) {
 		return matriculaService.fazerMatricula(matricula);
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public Matricula getMatricula(@PathVariable Long id) {
 		return matriculaRepository.findOne(id);
@@ -49,5 +49,5 @@ public class MatriculaResource {
 	public Matricula trancaMatricula(@PathVariable Long id, @RequestBody Matricula matricula) {
 		return matriculaService.trancaMatricula(matricula);
 	}
-	
+
 }

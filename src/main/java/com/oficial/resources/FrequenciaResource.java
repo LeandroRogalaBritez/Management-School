@@ -16,7 +16,7 @@ import com.oficial.domain.service.FrequenciaService;
 @RestController
 @RequestMapping("/frequencia")
 public class FrequenciaResource {
-	
+
 	private FrequenciaRepository repositorio;
 	private FrequenciaService service;
 
@@ -25,7 +25,7 @@ public class FrequenciaResource {
 		this.repositorio = repositorio;
 		this.service = service;
 	}
-	
+
 	@PostMapping
 	public Frequencia saveFrequencia(@RequestBody Frequencia frequencia) {
 		return service.lancaFrequencia(frequencia);
@@ -35,22 +35,20 @@ public class FrequenciaResource {
 	public Iterable<Frequencia> getAllFrequencias() {
 		return repositorio.findAll();
 	}
-	
-	@GetMapping(value="/{id}")
+
+	@GetMapping(value = "/{id}")
 	public Frequencia getById(@PathVariable Long id) {
 		return repositorio.findOne(id);
 	}
-		
-	@DeleteMapping(value="/{id}")
+
+	@DeleteMapping(value = "/{id}")
 	public void removeFrequencia(@PathVariable Long id) {
 		repositorio.delete(id);
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public Frequencia updateFrequencia(@PathVariable Long id, @RequestBody Frequencia frequencia) {
 		return repositorio.save(frequencia);
 	}
-	
-	
 
 }

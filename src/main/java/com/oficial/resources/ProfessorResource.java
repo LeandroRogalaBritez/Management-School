@@ -22,7 +22,7 @@ public class ProfessorResource {
 		super();
 		this.repositorio = repositorio;
 	}
-	
+
 	@PostMapping
 	public Professor saveProfessor(@RequestBody Professor professor) {
 		return repositorio.save(professor);
@@ -32,17 +32,17 @@ public class ProfessorResource {
 	public Iterable<Professor> getAllProfessors() {
 		return repositorio.findAll();
 	}
-	
-	@GetMapping(value="/{nome}")
+
+	@GetMapping(value = "/{nome}")
 	public Professor getByNome(@PathVariable String nome) {
 		return repositorio.findByNome(nome);
 	}
-		
-	@DeleteMapping(value="/{id}")
+
+	@DeleteMapping(value = "/{id}")
 	public void removeProfessor(@PathVariable Long id) {
 		repositorio.delete(id);
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public Professor updateProfessor(@PathVariable Long id, @RequestBody Professor professor) {
 		return repositorio.save(professor);

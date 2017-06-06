@@ -25,26 +25,25 @@ public class HistoricoResource {
 		this.historicoRepository = historicoRepository;
 		this.service = service;
 	}
-	
+
 	@GetMapping
 	public Iterable<Historico> getAllHistorico() {
 		return historicoRepository.findAll();
 	}
-	
+
 	@PostMapping
 	public Historico saveHistorico(@RequestBody Historico historico) {
 		return historicoRepository.save(historico);
 	}
-	
-	@PostMapping(value="/aprovado")
+
+	@PostMapping(value = "/aprovado")
 	public Collection<Historico> getAprovados(@RequestBody Collection<Disciplina> disciplinas) {
 		return historicoRepository.findByDisciplinaInAndAprovadoTrue(disciplinas);
 	}
-	
-	@GetMapping(value="/aluno/{idAluno}")
-	public Collection<Historico> getHistoricoAluno(@PathVariable Long idAluno){
+
+	@GetMapping(value = "/aluno/{idAluno}")
+	public Collection<Historico> getHistoricoAluno(@PathVariable Long idAluno) {
 		return service.buscaHistoricoAluno(idAluno);
 	}
-	
-}
 
+}

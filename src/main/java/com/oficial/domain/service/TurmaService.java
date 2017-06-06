@@ -14,10 +14,10 @@ public class TurmaService {
 		super();
 		this.repositorio = repositorio;
 	}
-	
-	public Turma salvaTurma(Turma turma){
+
+	public Turma salvaTurma(Turma turma) {
 		turma.setSituacao(false);
-		repositorio.save(turma);		
+		repositorio.save(turma);
 		return turma;
 	}
 

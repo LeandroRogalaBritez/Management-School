@@ -9,15 +9,15 @@ import com.oficial.domain.repository.FrequenciaRepository;
 
 @Service
 public class FrequenciaService {
-	
+
 	private FrequenciaRepository rep;
 
 	public FrequenciaService(FrequenciaRepository rep) {
 		super();
 		this.rep = rep;
 	}
-	
-	public Frequencia lancaFrequencia(Frequencia frequencia){
+
+	public Frequencia lancaFrequencia(Frequencia frequencia) {
 		frequencia.setData(new Date());
 		rep.save(frequencia);
 		return frequencia;

@@ -3,7 +3,6 @@ package com.oficial.domain.entities;
 import javax.persistence.Entity;
 
 @Entity
-public class Cordenador extends Funcionario{
-	
-	
+public class Cordenador extends Funcionario {
+
 }

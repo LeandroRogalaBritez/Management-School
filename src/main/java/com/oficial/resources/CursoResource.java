@@ -17,31 +17,31 @@ import com.oficial.domain.repository.CursoRepository;
 public class CursoResource {
 
 	private CursoRepository cursoRepository;
-	
+
 	public CursoResource(CursoRepository cursoRepository) {
 		this.cursoRepository = cursoRepository;
 	}
-	
+
 	@GetMapping
 	public Iterable<Curso> getAllCursos() {
 		return cursoRepository.findAll();
 	}
-	
-	@PostMapping 
+
+	@PostMapping
 	public Curso saveCurso(@RequestBody Curso curso) {
 		return cursoRepository.save(curso);
 	}
-	
-	@GetMapping(value="/{id}")
+
+	@GetMapping(value = "/{id}")
 	public Curso getById(@PathVariable Long id) {
 		return cursoRepository.findOne(id);
 	}
-	
-	@DeleteMapping(value="/{id}")
+
+	@DeleteMapping(value = "/{id}")
 	public void removeCurso(@PathVariable Long id) {
 		cursoRepository.delete(id);
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public Curso updateCurso(@PathVariable Long id, @RequestBody Curso curso) {
 		return cursoRepository.save(curso);

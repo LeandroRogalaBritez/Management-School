@@ -9,17 +9,17 @@ import com.oficial.domain.repository.TrabalhoRepository;
 
 @Service
 public class TrabalhoService {
-	
+
 	private TrabalhoRepository rep;
 
 	public TrabalhoService(TrabalhoRepository rep) {
 		super();
 		this.rep = rep;
 	}
-	
-	public Trabalho cadastraTrabalho(Trabalho trabalho){
+
+	public Trabalho cadastraTrabalho(Trabalho trabalho) {
 		trabalho.setData(new Date());
-		rep.save(trabalho);		
+		rep.save(trabalho);
 		return trabalho;
 	}
 

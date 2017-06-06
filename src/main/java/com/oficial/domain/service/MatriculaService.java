@@ -20,19 +20,17 @@ public class MatriculaService {
 	private DisciplinaRepository disciplinaRepository;
 	private HistoricoRepository historicoRepository;
 
-	public MatriculaService(
-			MatriculaRepository matriculaRepository, 
-			DisciplinaRepository disciplinaRepository,
+	public MatriculaService(MatriculaRepository matriculaRepository, DisciplinaRepository disciplinaRepository,
 			HistoricoRepository historicoRepository) {
 		this.matriculaRepository = matriculaRepository;
 		this.disciplinaRepository = disciplinaRepository;
 		this.historicoRepository = historicoRepository;
 	}
-	
+
 	public boolean fazerMatricula(Matricula matricula) {
 		Disciplina disciplina;
 		disciplina = disciplinaRepository.findOne(matricula.getDisciplina().getId());
-		if(atendeDependencias(disciplina.getDependencias(), matricula.getAluno())) {
+		if (atendeDependencias(disciplina.getDependencias(), matricula.getAluno())) {
 			matricula.setSituacao(true);
 			matricula.setData(new Date());
 			matriculaRepository.save(matricula);
@@ -41,22 +39,22 @@ public class MatriculaService {
 			return false;
 		}
 	}
-	
+
 	private boolean atendeDependencias(Collection<Disciplina> disciplinas, Aluno aluno) {
-		if(disciplinas.isEmpty()){
+		if (disciplinas.isEmpty()) {
 			return true;
 		}
-		for(Disciplina d: disciplinas){
+		for (Disciplina d : disciplinas) {
 			Historico historico = new Historico();
 			historico = historicoRepository.findByDisciplinaInAndAlunoIn(d, aluno);
-			if(historico == null || !historico.isAprovado()){
+			if (historico == null || !historico.isAprovado()) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
-	public Matricula trancaMatricula(Matricula matricula){
+
+	public Matricula trancaMatricula(Matricula matricula) {
 		matricula.setSituacao(false);
 		Historico historico = new Historico();
 		historico.setAluno(matricula.getAluno());
@@ -66,5 +64,5 @@ public class MatriculaService {
 		matriculaRepository.save(matricula);
 		return matricula;
 	}
-	
+
 }

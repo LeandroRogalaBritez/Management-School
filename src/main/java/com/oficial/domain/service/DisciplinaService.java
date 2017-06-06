@@ -63,50 +63,50 @@ public class DisciplinaService {
 		Collection<Prova> provas = pRep.findByDisciplinaInAndAlunoIn(disciplina, aluno);
 		Collection<Trabalho> trabalhos = tRep.findByDisciplinaInAndAlunoIn(disciplina, aluno);
 		Collection<Frequencia> frequencia = fRep.findByDisciplinaInAndAlunoIn(disciplina, aluno);
-		if(calculaMediaProva(provas) && calculaMediaTrabalho(trabalhos) && calculaFrequencia(frequencia)){
+		if (calculaMediaProva(provas) && calculaMediaTrabalho(trabalhos) && calculaFrequencia(frequencia)) {
 			Historico historico = new Historico();
 			historico.setAluno(aluno);
 			historico.setAprovado(true);
 			historico.setDisciplina(disciplina);
-			hRep.save(historico);	
-		}else{
+			hRep.save(historico);
+		} else {
 			Historico historico = new Historico();
 			historico.setAluno(aluno);
 			historico.setAprovado(false);
 			historico.setDisciplina(disciplina);
-			hRep.save(historico);	
+			hRep.save(historico);
 		}
 	}
-	
-	private boolean calculaMediaProva(Collection<Prova> provas){
+
+	private boolean calculaMediaProva(Collection<Prova> provas) {
 		double notaTotal = 0;
 		int cont = 0;
-		for(Prova p : provas){
+		for (Prova p : provas) {
 			notaTotal = notaTotal + p.getNota();
 			cont++;
 		}
-		double media = notaTotal/cont;
+		double media = notaTotal / cont;
 		return media >= 7;
 	}
-	
-	private boolean calculaMediaTrabalho(Collection<Trabalho> trabalhos){
+
+	private boolean calculaMediaTrabalho(Collection<Trabalho> trabalhos) {
 		double notaTotal = 0;
 		int cont = 0;
-		for(Trabalho p : trabalhos){
+		for (Trabalho p : trabalhos) {
 			notaTotal = notaTotal + p.getNota();
 			cont++;
 		}
-		double media = notaTotal/cont;
+		double media = notaTotal / cont;
 		return media >= 7;
 	}
-	
-	private boolean calculaFrequencia(Collection<Frequencia> freq){
+
+	private boolean calculaFrequencia(Collection<Frequencia> freq) {
 		int presente = 0;
-		for(Frequencia f: freq){
-			if(f.isPresente()){
+		for (Frequencia f : freq) {
+			if (f.isPresente()) {
 				presente++;
 			}
 		}
-		return presente >= 7; 
+		return presente >= 7;
 	}
 }

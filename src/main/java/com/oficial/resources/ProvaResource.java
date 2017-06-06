@@ -25,7 +25,7 @@ public class ProvaResource {
 		this.repositorio = repositorio;
 		this.service = service;
 	}
-	
+
 	@PostMapping
 	public Prova saveProva(@RequestBody Prova prova) {
 		return service.cadastraProva(prova);
@@ -35,17 +35,17 @@ public class ProvaResource {
 	public Iterable<Prova> getAllProvas() {
 		return repositorio.findAll();
 	}
-	
-	@GetMapping(value="/{id}")
+
+	@GetMapping(value = "/{id}")
 	public Prova getById(@PathVariable Long id) {
 		return repositorio.findOne(id);
 	}
-		
-	@DeleteMapping(value="/{id}")
+
+	@DeleteMapping(value = "/{id}")
 	public void removeProva(@PathVariable Long id) {
 		repositorio.delete(id);
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public Prova updateProva(@PathVariable Long id, @RequestBody Prova prova) {
 		return repositorio.save(prova);

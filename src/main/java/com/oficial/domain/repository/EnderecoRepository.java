@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.oficial.domain.entities.Endereco;
 
-public interface EnderecoRepository extends CrudRepository<Endereco, Long>{
+public interface EnderecoRepository extends CrudRepository<Endereco, Long> {
 
 }
