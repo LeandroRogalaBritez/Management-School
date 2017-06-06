@@ -50,4 +50,9 @@ public class AlunoResource {
 		alunoRepository.delete(id);
 	}
 	
+	@GetMapping(value="/teste/{id}")
+	public Aluno buscaAlunoId(@PathVariable Long id){
+		return alunoRepository.findOne(id);
+	}
+	
 }

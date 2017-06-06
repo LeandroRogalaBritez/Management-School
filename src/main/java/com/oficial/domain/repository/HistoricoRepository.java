@@ -14,4 +14,6 @@ public interface HistoricoRepository extends CrudRepository<Historico, Long>{
 	
 	public Historico findByDisciplinaInAndAlunoIn(Disciplina disciplinas, Aluno aluno);
 	
+	public Collection<Historico> findByAlunoIn(Aluno aluno);
+	
 }
