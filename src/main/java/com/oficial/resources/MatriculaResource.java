@@ -46,8 +46,8 @@ public class MatriculaResource {
 	}
 
 	@PutMapping(value = "/{id}")
-	public Matricula updateMatricula(@PathVariable Long id, @RequestBody Matricula matricula) {
-		return matriculaRepository.save(matricula);
+	public Matricula trancaMatricula(@PathVariable Long id, @RequestBody Matricula matricula) {
+		return matriculaService.trancaMatricula(matricula);
 	}
 	
 }

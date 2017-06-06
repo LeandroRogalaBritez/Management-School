@@ -27,6 +27,9 @@ public class Matricula {
 	private Disciplina disciplina;
 
 	@NotNull
+	private boolean situacao;
+
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date data;
 
@@ -62,12 +65,21 @@ public class Matricula {
 		this.data = data;
 	}
 
-	public Matricula(Long id, Aluno aluno, Disciplina disciplina, Date data) {
+	public void setSituacao(boolean situacao) {
+		this.situacao = situacao;
+	}
+
+	public boolean isSituacao() {
+		return situacao;
+	}
+
+	public Matricula(Long id, Aluno aluno, Disciplina disciplina, Date data, boolean situacao) {
 		super();
 		this.id = id;
 		this.aluno = aluno;
 		this.disciplina = disciplina;
 		this.data = data;
+		this.situacao = situacao;
 	}
 
 	public Matricula() {
